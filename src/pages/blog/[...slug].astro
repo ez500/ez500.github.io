@@ -1,0 +1,114 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Icon from "../../components/Icon.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog", ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const dateFmt = new Intl.DateTimeFormat("en-US", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+---
+
+<BaseLayout title={post.data.title} description={post.data.description}>
+  <article class="section container post">
+    <a href="/blog" class="back">
+      <Icon name="arrow-right" size={16} class="flip" /> Back to blog
+    </a>
+
+    <header class="head reveal">
+      <time class="date text-muted" datetime={post.data.date.toISOString()}>
+        {dateFmt.format(post.data.date)}
+      </time>
+      <h1>{post.data.title}</h1>
+      {
+        post.data.tags.length > 0 && (
+          <ul class="chips">
+            {post.data.tags.map((t) => (
+              <li class="chip">{t}</li>
+            ))}
+          </ul>
+        )
+      }
+    </header>
+
+    <div class="prose reveal">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .post {
+    max-width: 46rem;
+  }
+  .back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  .back :global(.flip) {
+    transform: rotate(180deg);
+  }
+  .head {
+    margin-bottom: 2rem;
+  }
+  .date {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+  }
+  .head h1 {
+    margin: 0.5rem 0 1rem;
+  }
+
+  /* Long-form Markdown styling — scoped to rendered post content. */
+  .prose :global(h2) {
+    margin-top: 2rem;
+    font-size: 1.5rem;
+  }
+  .prose :global(h3) {
+    margin-top: 1.5rem;
+  }
+  .prose :global(p),
+  .prose :global(ul),
+  .prose :global(ol) {
+    margin-bottom: 1.15rem;
+  }
+  .prose :global(ul),
+  .prose :global(ol) {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .prose :global(li) {
+    padding-left: 0.15rem;
+  }
+  .prose :global(pre) {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 1rem 1.15rem;
+    overflow-x: auto;
+    margin-bottom: 1.25rem;
+  }
+  .prose :global(:not(pre) > code) {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 0.1rem 0.35rem;
+  }
+</style>
