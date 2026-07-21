@@ -51,13 +51,15 @@ const dateFmt = new Intl.DateTimeFormat("en-US", {
       {
         latestPost && (
           <a class="card reveal post" href={`/blog/${latestPost.id}`}>
-            <time
-              class="date text-muted"
-              datetime={latestPost.data.date.toISOString()}
-            >
-              {dateFmt.format(latestPost.data.date)}
-            </time>
-            <h3>{latestPost.data.title}</h3>
+            <header class="head">
+              <time
+                class="date text-muted"
+                datetime={latestPost.data.date.toISOString()}
+              >
+                {dateFmt.format(latestPost.data.date)}
+              </time>
+              <h3>{latestPost.data.title}</h3>
+            </header>
             <p class="blurb">{latestPost.data.description}</p>
             {latestPost.data.tags.length > 0 && (
               <ul class="chips">
