@@ -5,6 +5,7 @@ export interface ProjectLink {
 
 export interface Project {
   title: string;
+  date: string;
   role: string;
   blurb: string;
   bullets: string[];
@@ -13,25 +14,14 @@ export interface Project {
 }
 
 /**
- * Projects sourced from Eugene's résumé + LinkedIn "About".
+ * Projects sourced from Eugene's resume + LinkedIn "About".
  * Ordered roughly by prominence / recency.
  */
 export const projects: Project[] = [
   {
-    title: "GreatStudier Rewrite for Web",
-    role: "Software Developer · BiGGDev",
-    blurb:
-      "An educational term & flashcard user interface — a modern web rewrite of the GreatStudier study tool.",
-    bullets: [
-      "Built an interactive flashcard/term study experience for the web.",
-      "Developed as part of BiGGDev, integrating APIs from Discord, YouTube, Google, and more.",
-    ],
-    tags: ["Web", "Python", "APIs", "EdTech"],
-    links: [],
-  },
-  {
     title: "Gatherpack",
-    role: "Team Contributor · Sledgehammer Infosystems",
+    date: "Jun 2023",
+    role: "Contributor · Sledgehammer Infosystems",
     blurb:
       "A practical team management and logistics application — a rewrite of a logistics, information, and communications planner for organizations.",
     bullets: [
@@ -39,11 +29,12 @@ export const projects: Project[] = [
       "Enhanced and maintained the DBMS and backend components — data validation, tokens, and automated user functionality via scripts, hooks, and shortcuts.",
     ],
     tags: ["Ruby on Rails", "PostgreSQL", "Fullstack"],
-    links: [{ label: "gatherpack.com", href: "https://gatherpack.com" }],
+    links: [{ label: "Visit Gatherpack", href: "https://gatherpack.com" }],
   },
   {
     title: "Rowdy — FRC 461 Robot Code",
-    role: "Lead Developer & Team Vice President",
+    date: "Jan 2023-May 2025",
+    role: "Software Lead & Team Vice President",
     blurb:
       "Legacy robot software across four annual iterations (Rowdy22–25) with 2000+ signed, verified commits, focused on automation and neural-network-based vision tracking.",
     bullets: [
@@ -52,43 +43,71 @@ export const projects: Project[] = [
       "Taught 40+ teammates programming (Java, Python, algorithms); Rowdy23–25 competed at world championships in Houston.",
     ],
     tags: ["Java", "Computer Vision", "Robotics", "Automation"],
-    links: [{ label: "github.com/frc461", href: "https://github.com/frc461" }],
+    links: [{ label: "View Org", href: "https://github.com/frc461" }, { label: "Visit Team Website", href: "https://boilerinvasion.org" }],
   },
   {
-    title: "WL Hack Club",
-    role: "Treasurer & Executive Officer",
+    title: "GreatStudier Rewrite for Web",
+    date: "Jul 2023-Dec 2024",
+    role: "Software Developer · BiGGDev",
     blurb:
-      "A CS-education club bringing software exploration to as many students as possible through workshops and hackathons.",
+      "An educational term & flashcard user interface — a modern web rewrite of the GreatStudier study tool.",
     bullets: [
-      "Planned weekly original workshops (Pygame, JS, Ruby) with fellow executives.",
-      "Organized bi-annual all-day hackathons (60+ registrants) and judged tens of project entries.",
-      "Raised over $3,500 for club funding, hackathon expenses, and sponsorships.",
+      "Built an interactive flashcard/term study experience for the web.",
+      "Developed as part of BiGGDev, integrating APIs from Discord, YouTube, Google, and more.",
     ],
-    tags: ["Education", "Community", "Events"],
-    links: [{ label: "wl.hackclub.com", href: "https://wl.hackclub.com" }],
+    tags: ["Web", "Python", "APIs", "EdTech"],
+    links: [{ label: "Visit Source", href: "https://github.com/BiGGDevOrg/GreatStudier-Rewrite" }],
   },
   {
-    title: "Video-Game Plugins",
-    role: "Developer",
+    title: "bigfatstudier (unfinished)",
+    date: "Mar 2023-Aug 2024",
+    role: "Software Developer · BiGGDev",
     blurb:
-      "A collection of video-game plugins — Manhunt, Weaponmaster, and greatbedoverlay — adding custom gameplay modes and overlays.",
-    bullets: [
-      "Designed custom game modes and mechanics for multiplayer play.",
-      "Built and shipped as reusable, installable plugins.",
-    ],
-    tags: ["Java", "Game Dev", "Plugins"],
-    links: [],
-  },
-  {
-    title: "bigfatstudier",
-    role: "Developer · BiGGDev",
-    blurb:
-      "An educational application built into Discord — study tools brought directly into the chat platform students already use.",
+      "An educational application built into Discord — study tools brought directly into the chat platform students already use via bot chat inferface.",
     bullets: [
       "Developed an interactive study/learning experience as a Discord application.",
       "Leveraged the Discord API alongside other service integrations.",
     ],
     tags: ["Discord API", "Python", "EdTech"],
     links: [],
+  },
+  {
+    title: "Manhunt (unfinished)",
+    date: "May 2024",
+    role: "Software Developer · BiGGDev",
+    blurb:
+      "A Spigot plugin meant to recreate the experience for multiplayer Manhunt on a Minecraft server. Remains unfinished and buggy.",
+    bullets: [
+      "Tested for custom game modes such as contested speedruns and the official manhunt mini-game.",
+      "Built and shipped as a reusable, installable, albeit buggy, plugin.",
+    ],
+    tags: ["Java", "Game Dev", "Plugins"],
+    links: [{ label: "View Source", href: "https://github.com/BiGGDevOrg/Manhunt" }],
+  },
+  {
+    title: "greatbedoverlay",
+    date: "May 2023",
+    role: "Contributor",
+    blurb:
+      "A terminal based overlay for Bedwars for real-time queue analysis via Hypixel API player lookup.",
+    bullets: [
+      "Optimized for quick calculations and ultimate player insight.",
+      "Highly efficient and accurate metrics presented to make choosing the right queue super easy.",
+    ],
+    tags: ["Python", "Game Dev", "CLI", "API"],
+    links: [{ label: "View Source", href: "https://github.com/Gerseneck/greatbedoverlay" }],
+  },
+  {
+    title: "Weaponmaster",
+    date: "May 2022",
+    role: "Contributor",
+    blurb:
+      "A Spigot plugin for Minecraft servers. Highly customizable and adds several new features to the game.",
+    bullets: [
+      "Designed custom game modes and mechanics for multiplayer play.",
+      "Built and shipped as a reusable, installable plugin.",
+    ],
+    tags: ["Java", "Game Dev", "Plugins"],
+    links: [{ label: "View Source", href: "https://github.com/Gerseneck/greatbedoverlay" }],
   },
 ];

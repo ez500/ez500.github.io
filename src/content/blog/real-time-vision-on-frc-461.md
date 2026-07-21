@@ -5,6 +5,10 @@ date: 2026-07-12
 tags: ["Computer Vision", "Robotics", "Java"]
 ---
 
+*Note: This blog is AI-generated to test my blog feature. Kinda ignore this post
+because it doesn't make sense, in that I didn't actually really work on latency
+issues in FRC robot code.*
+
 On FRC 461 (*Rowdy*), one of the hardest problems wasn't accuracy — it was
 latency. A vision pipeline that identifies a target perfectly but reports it
 200 ms late is useless when the robot is moving.

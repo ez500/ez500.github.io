@@ -7,12 +7,12 @@ const RESUME = "/resume.pdf";
 
 <BaseLayout
   title="Resume"
-  description="Eugene Zhang's résumé — education, skills, experience, and projects."
+  description="Eugene Zhang's resume — education, skills, experience, and projects."
 >
   <section class="section container">
     <div class="head">
       <div>
-        <p class="eyebrow">Résumé</p>
+        <p class="eyebrow">What a show-off</p>
         <h1>Resume</h1>
         <p class="lead">
           A snapshot of my education, skills, experience, and projects.
@@ -23,18 +23,18 @@ const RESUME = "/resume.pdf";
           Download PDF <Icon name="download" size={16} />
         </a>
         <a href={RESUME} target="_blank" rel="noopener noreferrer" class="btn">
-          Open in new tab <Icon name="external" size={16} />
+          View in tab <Icon name="external" size={16} />
         </a>
       </div>
     </div>
 
     <div class="viewer card">
       <object data={RESUME} type="application/pdf" width="100%" height="100%">
-        <iframe src={RESUME} title="Eugene Zhang résumé" width="100%" height="100%"
+        <iframe src={RESUME} title="Eugene Zhang resume" width="100%" height="100%"
         ></iframe>
         <p class="fallback">
           Your browser can't display the embedded PDF.
-          <a href={RESUME} download>Download the résumé</a> instead.
+          <a href={RESUME} download>Download the resume</a> instead.
         </p>
       </object>
     </div>
