@@ -24,12 +24,6 @@ const education = [
   },
 ];
 
-const languages = [
-  { name: "English", level: "Native" },
-  { name: "Chinese", level: "Proficient" },
-  { name: "German", level: "Proficient" },
-];
-
 const hobbies = [
   "Tennis",
   "Pickleball",
@@ -50,75 +44,46 @@ const hobbies = [
     <h1 class="reveal">Hi, I'm Eugene.</h1>
     <div class="bio card reveal">
       <p>
-        A full-time college student majoring in CS, and a part-time software
-        developer with knowledge in Java, Python, C++, HTML/CSS, Ruby (Ruby on
-        Rails), and more. I develop cool software projects. Some of my projects
-        and contributions include an educational term/flashcard user interface
-        (GreatStudier Rewrite for Web), a number of video game plugins (Manhunt,
-        Weaponmaster, greatbedoverlay), an educational application built into
-        Discord (bigfatstudier), and software implementations of multiple FRC
-        robots, with a focus on automation and neural network-based vision
-        tracking. I have also contributed to a recent rewrite of a logistics,
-        information, and communications planner system for organizations
-        (Gatherpack).
+        I am an undergraduate student at Purdue University double majoring in
+        Computer Science and Mathematics, with a minor in Economics, as well as
+        a part-time software developer with a strong background in applications
+        programming, software engineering, and machine learning via agentic systems.
+        I enjoy solving problems with unique approaches and thrive on collaboration,
+        through which I develop cool software projects.
       </p>
     </div>
   </section>
 
-
   <section class="section container">
-    <h2 class="reveal">Summary</h2>
+    <h2 class="reveal">Small Bio</h2>
     <p class="lead reveal">
-      Undergraduate student at Purdue University double majoring in Computer
-      Science and Mathematics, with a minor in Economics. Strong background in
-      API and applications programming, software engineering, and image
-      processing in machine learning. I enjoy solving problems with unique
-      approaches and thrive on collaboration.
+      Although I was born in Boston, I've spent most of my childhood and life in
+      West Lafayette, IN, having went to West Lafayette Schools and graduated from
+      West Lafayette Jr/Sr High School. With the opportunities of higher education
+      literally right next to me, I was able to take Purdue courses throughout my
+      secondary schooling. Hence, I'll be able to graduate soon (yay).
     </p>
   </section>
 
-  <section class="section container">
-    <h2 class="reveal">Education</h2>
-    <div class="grid grid-2">
-      {
-        education.map((e) => (
-          <div class="card reveal">
-            <h3>{e.school}</h3>
-            <p class="text-muted meta">
-              {e.place} · {e.dates}
-            </p>
-            <p>{e.detail}</p>
-            <ul class="bullets">
-              {e.notes.map((n) => (
-                <li>{n}</li>
-              ))}
-            </ul>
-          </div>
-        ))
-      }
-    </div>
-  </section>
-
   <section class="section container two-col">
-    <div>
-      <h2 class="reveal">Languages</h2>
-      <ul class="lang-list">
-        {
-          languages.map((l) => (
-            <li class="reveal">
-              <span>{l.name}</span>
-              <span class="chip">{l.level}</span>
-            </li>
-          ))
-        }
-      </ul>
-    </div>
-    <div>
-      <h2 class="reveal">Hobbies &amp; Interests</h2>
-      <ul class="chips reveal">
-        {hobbies.map((h) => <li class="chip">{h}</li>)}
-      </ul>
-    </div>
+    <h2 class="reveal">Hobbies &amp; Interests</h2>
+    <p class="lead reveal">
+      I got really into music early on in my life, starting with piano. I really
+      believe the key to perfect pitch is hearing and participating in music when
+      you're literally a toddler, so learning musical notes becomes like learning
+      colors or anything else seemingly primitive to the normal adult person. That
+      said, I currently play a lot of guitar (acoustic & electric, not so much bass)
+      as well as piano, and a bit of violin. I play some indie, pop, rock, and
+      Christian worship music (I serve at my local Chinese Alliance church).
+
+      I also got into tennis near middle school. I've tried to keep up my routine
+      with tennis at least a few times a week. My absolute favorite player is Federer,
+      even though I know who the real goat probably is. Sometimes I stoop myself
+      down to the level of pickleball. Sometimes.
+
+      I guess I play FPS games. Like, Valorant, Overwatch, Apex, CSGO, etc. Obviously
+      not a lot though, I got a ton of work to do so of course I don't play that much...
+    </p>
   </section>
 </BaseLayout>
 
