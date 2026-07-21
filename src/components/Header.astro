@@ -1,0 +1,172 @@
+---
+import Icon from "./Icon.astro";
+import ThemeToggle from "./ThemeToggle.astro";
+
+const nav = [
+  { href: "/projects", label: "Projects" },
+  { href: "/about", label: "About Me" },
+  { href: "/contact", label: "Contact Me" },
+  { href: "/resume", label: "Resume" },
+];
+
+// Normalize the current path (strip trailing slash) for active highlighting.
+const path = Astro.url.pathname.replace(/\/+$/, "") || "/";
+---
+
+<header class="site-header">
+  <div class="container bar">
+    <a href="/" class="brand" aria-label="Home" class:list={[{ active: path === "/" }]}>
+      <Icon name="house" size={22} />
+      <span class="brand-text">EZ</span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      {
+        nav.map((item) => (
+          <a
+            href={item.href}
+            class:list={["nav-link", { active: path === item.href }]}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="actions">
+      <ThemeToggle />
+      <button
+        id="menu-toggle"
+        class="menu-btn"
+        type="button"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+        aria-controls="mobile-nav"
+      >
+        <Icon name="menu" size={22} />
+      </button>
+    </div>
+  </div>
+
+  <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile" hidden>
+    <a href="/" class:list={["nav-link", { active: path === "/" }]}>Home</a>
+    {
+      nav.map((item) => (
+        <a
+          href={item.href}
+          class:list={["nav-link", { active: path === item.href }]}
+        >
+          {item.label}
+        </a>
+      ))
+    }
+  </nav>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: saturate(160%) blur(12px);
+    background: color-mix(in srgb, var(--bg) 78%, transparent);
+    border-bottom: 1px solid var(--border);
+  }
+  .bar {
+    height: var(--nav-h);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    color: var(--text);
+  }
+  .brand:hover,
+  .brand.active {
+    color: var(--accent);
+  }
+  .brand-text {
+    font-family: var(--font-mono);
+  }
+  .nav {
+    display: flex;
+    gap: 0.35rem;
+    margin-inline-start: auto;
+  }
+  .nav-link {
+    position: relative;
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    color: var(--text-muted);
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+  .nav-link:hover {
+    color: var(--text);
+    background: var(--surface-2);
+  }
+  .nav-link.active {
+    color: var(--accent);
+  }
+  .nav-link.active::after {
+    content: "";
+    position: absolute;
+    left: 0.75rem;
+    right: 0.75rem;
+    bottom: 0.15rem;
+    height: 2px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  }
+  .actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-inline-start: 0.25rem;
+  }
+  .menu-btn {
+    display: none;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    cursor: pointer;
+  }
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 1.25rem 1rem;
+    border-top: 1px solid var(--border);
+  }
+  .mobile-nav .nav-link {
+    padding: 0.75rem 0.5rem;
+  }
+
+  @media (max-width: 720px) {
+    .nav {
+      display: none;
+    }
+    .menu-btn {
+      display: grid;
+    }
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("mobile-nav");
+  toggle?.addEventListener("click", () => {
+    const open = menu?.hasAttribute("hidden");
+    if (open) menu?.removeAttribute("hidden");
+    else menu?.setAttribute("hidden", "");
+    toggle.setAttribute("aria-expanded", String(!!open));
+  });
+</script>

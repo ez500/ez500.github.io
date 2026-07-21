@@ -1,0 +1,115 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Icon from "../components/Icon.astro";
+
+const skills = {
+  Languages: ["Java", "Python", "C/C++", "JavaScript", "Ruby", "SQL", "R"],
+  Technologies: [
+    "Django",
+    "Ruby on Rails",
+    "Node.js",
+    "PostgreSQL",
+    "Docker",
+    "AWS / OCI",
+    "OpenCV",
+    "PyTorch",
+    "TensorFlow",
+  ],
+  Methodologies: ["OOP", "Functional", "Agile / Scrum", "FOSS", "Fullstack"],
+};
+
+const awards = [
+  {
+    title: "National Merit Scholarship Finalist & Winner",
+    detail: "~8,000 selected from ~15,000 Finalists (top 1% of PSAT scorers). (Jun 2025)",
+  },
+  {
+    title: "Presidential Scholar, Purdue University",
+    detail:
+      "One of Purdue's most prestigious scholarships — academic achievement, leadership & service. (Jan 2025)",
+  },
+  {
+    title: "AIME Qualifier (×3)",
+    detail: "Top 2.5% (AMC 10) & 5% (AMC 12) exam percentiles. (2022–2024)",
+  },
+  {
+    title: "President of Student Council",
+    detail: "Elected by the student body; organized events, fundraisers & legacy projects. (2021–2025)",
+  },
+];
+---
+
+<BaseLayout>
+  <section class="section hero container">
+    <p class="eyebrow reveal">Software Developer</p>
+    <h1 class="reveal">
+      Hi, I'm <span class="gradient-text">Eugene Zhang</span>.
+    </h1>
+    <p class="lead reveal">
+      CS &amp; Mathematics @ Purdue University, minor in Economics. I build
+      software with unique approaches — from API and fullstack applications to
+      machine-learning image processing.
+    </p>
+    <div class="btn-row reveal">
+      <a href="/projects" class="btn btn-primary">
+        View Projects <Icon name="arrow-right" size={16} />
+      </a>
+      <a href="/resume" class="btn">Resume</a>
+      <a href="/contact" class="btn">Contact Me</a>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2 class="reveal">Summary</h2>
+    <p class="lead reveal">
+      Undergraduate student at Purdue University double majoring in Computer
+      Science and Mathematics, with a minor in Economics. Strong background in
+      API and applications programming, software engineering, and image
+      processing in machine learning. I enjoy solving problems with unique
+      approaches and thrive on collaboration.
+    </p>
+  </section>
+
+  <section class="section container">
+    <h2 class="reveal">Skills</h2>
+    <div class="grid grid-3">
+      {
+        Object.entries(skills).map(([group, items]) => (
+          <div class="card reveal">
+            <h3>{group}</h3>
+            <ul class="chips">
+              {items.map((s) => (
+                <li class="chip">{s}</li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2 class="reveal">Awards &amp; Achievements</h2>
+    <div class="grid grid-2">
+      {
+        awards.map((a) => (
+          <div class="card reveal">
+            <h3>{a.title}</h3>
+            <p class="text-muted" style="margin:0">
+              {a.detail}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding-block: clamp(3rem, 9vw, 6rem);
+  }
+  .hero .lead {
+    margin-block: 1rem 1.75rem;
+  }
+</style>

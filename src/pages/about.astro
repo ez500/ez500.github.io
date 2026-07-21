@@ -1,0 +1,159 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const education = [
+  {
+    school: "Purdue University",
+    place: "West Lafayette, IN, US",
+    detail: "B.S. in Computer Science & Mathematics, Minor in Economics — GPA 3.9/4.0",
+    dates: "Aug 2025 – est. May 2027",
+    notes: [
+      "Relevant coursework: ML & Data Mining, Database Systems, Intro to AI, Software Engineering",
+      "John Martinson Honors College",
+    ],
+  },
+  {
+    school: "West Lafayette Jr/Sr High School",
+    place: "West Lafayette, IN, US",
+    detail: "High School Diploma — GPA 3.9/4.0",
+    dates: "Aug 2021 – May 2025",
+    notes: [
+      "Academic Honors, Magna Cum Laude",
+      "Many Purdue courses taken dual-credit (DS&A, Analysis of Algorithms, Real Analysis, Probability)",
+    ],
+  },
+];
+
+const languages = [
+  { name: "English", level: "Native" },
+  { name: "Chinese", level: "Proficient" },
+  { name: "German", level: "Proficient" },
+];
+
+const hobbies = [
+  "Tennis",
+  "Pickleball",
+  "Church & Worship",
+  "Acoustic / Electric Guitar",
+  "Piano",
+  "Violin",
+  "FPS Games",
+];
+---
+
+<BaseLayout
+  title="About Me"
+  description="About Eugene Zhang — CS & Mathematics student, software developer, and lifelong learner."
+>
+  <section class="section container">
+    <p class="eyebrow reveal">About Me</p>
+    <h1 class="reveal">Hi, I'm Eugene.</h1>
+
+    <div class="bio card reveal">
+      <p>
+        A full-time college student majoring in CS, and a part-time software
+        developer with knowledge in Java, Python, C++, HTML/CSS, Ruby (Ruby on
+        Rails), and more. I develop cool software projects. Some of my projects
+        and contributions include an educational term/flashcard user interface
+        (GreatStudier Rewrite for Web), a number of video game plugins (Manhunt,
+        Weaponmaster, greatbedoverlay), an educational application built into
+        Discord (bigfatstudier), and software implementations of multiple FRC
+        robots, with a focus on automation and neural network-based vision
+        tracking. I have also contributed to a recent rewrite of a logistics,
+        information, and communications planner system for organizations
+        (Gatherpack).
+      </p>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2 class="reveal">Education</h2>
+    <div class="grid grid-2">
+      {
+        education.map((e) => (
+          <div class="card reveal">
+            <h3>{e.school}</h3>
+            <p class="text-muted meta">
+              {e.place} · {e.dates}
+            </p>
+            <p>{e.detail}</p>
+            <ul class="bullets">
+              {e.notes.map((n) => (
+                <li>{n}</li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section container two-col">
+    <div>
+      <h2 class="reveal">Languages</h2>
+      <ul class="lang-list">
+        {
+          languages.map((l) => (
+            <li class="reveal">
+              <span>{l.name}</span>
+              <span class="chip">{l.level}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+    <div>
+      <h2 class="reveal">Hobbies &amp; Interests</h2>
+      <ul class="chips reveal">
+        {hobbies.map((h) => <li class="chip">{h}</li>)}
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .bio {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    line-height: 1.75;
+  }
+  .bio p {
+    margin: 0;
+  }
+  .meta {
+    margin: 0 0 0.5rem;
+    font-size: 0.9rem;
+  }
+  .bullets {
+    color: var(--text-muted);
+    font-size: 0.93rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    margin: 0.5rem 0 0;
+  }
+  .two-col {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+  .lang-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .lang-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.6rem 0.9rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+    font-weight: 600;
+  }
+</style>

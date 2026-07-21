@@ -1,0 +1,89 @@
+---
+import Icon from "./Icon.astro";
+
+const year = new Date().getFullYear();
+
+const links = [
+  { href: "https://www.linkedin.com/in/ez500", label: "LinkedIn", icon: "linkedin" as const },
+  { href: "https://github.com/ez500", label: "GitHub", icon: "github" as const },
+  {
+    href: "https://github.com/ez500/ez500.github.io",
+    label: "Source",
+    icon: "code" as const,
+  },
+];
+---
+
+<footer class="site-footer">
+  <div class="container inner">
+    <div class="left">
+      <span class="brand">Eugene Zhang</span>
+      <span class="text-muted">© {year} · Built with Astro</span>
+    </div>
+    <nav class="social" aria-label="Social">
+      {
+        links.map((l) => (
+          <a
+            href={l.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-link"
+            aria-label={l.label}
+          >
+            <Icon name={l.icon} size={18} />
+            <span>{l.label}</span>
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--border);
+    background: var(--bg-elevated);
+    margin-top: 3rem;
+  }
+  .inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-block: 1.5rem;
+  }
+  .left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    font-size: 0.9rem;
+  }
+  .brand {
+    font-weight: 700;
+  }
+  .social {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.45rem 0.8rem;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: color 0.2s var(--ease), border-color 0.2s var(--ease),
+      transform 0.2s var(--ease);
+  }
+  .social-link:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+</style>

@@ -1,0 +1,23 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import { projects } from "../data/projects";
+---
+
+<BaseLayout
+  title="Projects"
+  description="Selected software projects by Eugene Zhang — web apps, robotics, game plugins, and more."
+>
+  <section class="section container">
+    <p class="eyebrow reveal">Work</p>
+    <h1 class="reveal">Projects</h1>
+    <p class="lead reveal">
+      A selection of software I've built and contributed to — spanning web
+      applications, robotics, computer vision, and educational tools.
+    </p>
+
+    <div class="grid grid-2" style="margin-top: 2rem">
+      {projects.map((project) => <ProjectCard project={project} />)}
+    </div>
+  </section>
+</BaseLayout>
