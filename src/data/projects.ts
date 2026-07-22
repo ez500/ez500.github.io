@@ -19,6 +19,45 @@ export interface Project {
  */
 export const projects: Project[] = [
   {
+    title: "abid",
+    date: "May 2026",
+    role: "Contributor",
+    blurb:
+      "An efficient Discord-based web application focused on logistical management for Abide Christian Fellowship.",
+    bullets: [
+      "A bot utilizes Discord messaging API and user interactions to organize events, accomodations, and teams.",
+      "A Sinatra-based web application supplements the bot to organize data for convenient viewing.",
+    ],
+    tags: ["discord.rb", "Ruby", "API", "Sinatra"],
+    links: [{ label: "View Source", href: "https://github.com/wobschalli/abid" }],
+  },
+  {
+    title: "Mr. Wutard",
+    date: "Apr 2023-Jun 2026",
+    role: "Software Developer · BiGGDev",
+    blurb:
+      "A fun educational Discord application with seemingly endless insider easter eggs.",
+    bullets: [
+      "Users can ask the bot about any FRC programming topic, utilizing retrieval augmented generation (RAG) as a tool for the underlying agentic API.",
+      "Commands as part of the Discord bot messaging API contain fun blurbs and info resembling a certain familiar figure.",
+    ],
+    tags: ["discord.py", "Python", "API"],
+    links: [{ label: "View Source", href: "https://github.com/ez500/Wutard" }],
+  },
+  {
+    title: "Mr. Wutard",
+    date: "Jun 2023",
+    role: "Software Developer · BiGGDev",
+    blurb:
+      "A fun educational Discord application with seemingly endless insider easter eggs.",
+    bullets: [
+      "Users can ask the bot about any FRC programming topic, utilizing retrieval augmented generation (RAG) as a tool for the underlying agentic API.",
+      "Commands as part of the Discord bot messaging API contain fun blurbs and info resembling a certain familiar figure.",
+    ],
+    tags: ["discord.py", "Python", "API"],
+    links: [{ label: "View Source", href: "https://github.com/ez500/Wutard" }],
+  },
+  {
     title: "Gatherpack",
     date: "Jun 2023",
     role: "Contributor · Sledgehammer Infosystems",
@@ -69,7 +108,7 @@ export const projects: Project[] = [
       "Leveraged the Discord API alongside other service integrations.",
     ],
     tags: ["Discord API", "Python", "EdTech"],
-    links: [],
+    links: [{ label: "View Source", href: "https://github.com/ez500/bigfatstudier" }],
   },
   {
     title: "Manhunt (unfinished)",
