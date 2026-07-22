@@ -62,7 +62,7 @@ const dateFmt = new Intl.DateTimeFormat("en-US", {
               <h3>{latestPost.data.title}</h3>
             </header>
             <p class="blurb">{latestPost.data.description}</p>
-            <p class="excerpt">{excerpt(latestPost.body)}</p>
+            <p class="excerpt">{excerpt(latestPost.body, 50)}</p>
             {latestPost.data.tags.length > 0 && (
               <ul class="chips">
                 {latestPost.data.tags.map((t) => (
