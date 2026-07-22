@@ -1,13 +1,13 @@
 ---
 title: "Real-Time Vision on FRC 461"
-description: "Notes on getting neural-network vision tracking to run fast enough to matter on a competition robot."
-date: 2026-07-12
-tags: ["Computer Vision", "Robotics", "Java"]
+description: "Blog test on my personal website."
+date: 2025-07-12
+tags: ["Computer Vision", "Robotics", "Java", "Meta"]
 ---
 
 *Note: This blog is AI-generated to test my blog feature. Kinda ignore this post
-because it doesn't make sense, in that I didn't actually really work on latency
-issues in FRC robot code.*
+because it doesn't make sense, at least in the way that I didn't actually work on
+latency issues in FRC robot code.*
 
 On FRC 461 (*Rowdy*), one of the hardest problems wasn't accuracy — it was
 latency. A vision pipeline that identifies a target perfectly but reports it

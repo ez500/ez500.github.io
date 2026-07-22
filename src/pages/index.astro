@@ -4,6 +4,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Icon from "../components/Icon.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import { projects } from "../data/projects";
+import { excerpt } from "../lib/excerpt";
 
 // Latest project — first in the list (ordered by prominence / recency).
 const latestProject = projects[0];
@@ -61,6 +62,7 @@ const dateFmt = new Intl.DateTimeFormat("en-US", {
               <h3>{latestPost.data.title}</h3>
             </header>
             <p class="blurb">{latestPost.data.description}</p>
+            <p class="excerpt">{excerpt(latestPost.body)}</p>
             {latestPost.data.tags.length > 0 && (
               <ul class="chips">
                 {latestPost.data.tags.map((t) => (
@@ -104,6 +106,13 @@ const dateFmt = new Intl.DateTimeFormat("en-US", {
   }
   .post .blurb {
     margin: 0;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+  .post .excerpt {
+    margin: 0;
+    font-family: var(--font-sans);
     color: var(--text-muted);
   }
   .more {

@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Icon from "../../components/Icon.astro";
+import { excerpt } from "../../lib/excerpt";
 
 // Published posts, newest first. Drafts are excluded from the build.
 const posts = (await getCollection("blog", ({ data }) => !data.draft)).sort(
@@ -17,14 +18,14 @@ const dateFmt = new Intl.DateTimeFormat("en-US", {
 
 <BaseLayout
   title="Blog"
-  description="Writing by Eugene Zhang on software engineering, machine learning, robotics, and math."
+  description="My thoughts on software engineering, machine learning, robotics, math, and whatever other miscellaneous things that leak out of my brain."
 >
   <section class="section container">
     <p class="eyebrow reveal">Writing</p>
     <h1 class="reveal">Blog</h1>
     <p class="lead reveal">
-      Notes on software engineering, machine learning, robotics, and the math
-      that keeps leaking into my code.
+      My thoughts on software engineering, machine learning, robotics, math, and whatever
+      other miscellaneous things that leak out of my brain.
     </p>
 
     {
@@ -41,6 +42,7 @@ const dateFmt = new Intl.DateTimeFormat("en-US", {
               </time>
               <h2>{post.data.title}</h2>
               <p class="blurb">{post.data.description}</p>
+              <p class="excerpt">{excerpt(post.body)}</p>
               {post.data.tags.length > 0 && (
                 <ul class="chips">
                   {post.data.tags.map((t) => (
@@ -83,6 +85,13 @@ const dateFmt = new Intl.DateTimeFormat("en-US", {
   }
   .blurb {
     margin: 0;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+  .excerpt {
+    margin: 0;
+    font-family: var(--font-sans);
     color: var(--text-muted);
   }
   .more {
