@@ -33,19 +33,6 @@ export const projects: Project[] = [
   },
   {
     title: "Mr. Wutard",
-    date: "Apr 2023-Jun 2026",
-    role: "Software Developer · BiGGDev",
-    blurb:
-      "A fun educational Discord application with seemingly endless insider easter eggs.",
-    bullets: [
-      "Users can ask the bot about any FRC programming topic, utilizing retrieval augmented generation (RAG) as a tool for the underlying agentic API.",
-      "Commands as part of the Discord bot messaging API contain fun blurbs and info resembling a certain familiar figure.",
-    ],
-    tags: ["discord.py", "Python", "API"],
-    links: [{ label: "View Source", href: "https://github.com/ez500/Wutard" }],
-  },
-  {
-    title: "Mr. Wutard",
     date: "Jun 2023",
     role: "Software Developer · BiGGDev",
     blurb:
